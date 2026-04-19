@@ -193,7 +193,7 @@ const portfolioData = {
       issuer: "NVIDIA",
       href: "assets/Sanath Vijay Haritsa - NVIDIA Fundamentals of Deep Learning.pdf",
       description:
-        "Practical deep learning training covering CNNs, transfer learning, and model development with TensorFlow/Keras."
+        "Deep learning training covering CNNs, transfer learning, and model development with TensorFlow/Keras."
     },
     {
       title: "Agents Course",
