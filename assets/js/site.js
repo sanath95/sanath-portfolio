@@ -530,7 +530,9 @@ const renderEducation = () => {
       thesisTitle.textContent = "Thesis";
       const thesis = document.createElement("p");
       thesis.innerHTML = `<strong>${entry.thesisTitle}.</strong>`;
-      thesisWrap.append(thesisTitle, thesis);
+      const thesisGrade = document.createElement("p");
+      thesisGrade.textContent = "Obtained a grade of 1.5.";
+      thesisWrap.append(thesisTitle, thesis, thesisGrade);
       body.appendChild(thesisWrap);
     }
 
