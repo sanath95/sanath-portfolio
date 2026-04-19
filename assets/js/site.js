@@ -17,7 +17,7 @@ const portfolioData = {
   actions: {
     email: "mailto:sanath.vh@gmail.com",
     github: "https://github.com/sanath95",
-    linkedin: "https://www.linkedin.com/in/sanath-haritsa-974686315/",
+    linkedin: "https://www.linkedin.com/in/sanath-haritsa/",
     resume: "assets/Sanath Vijay Haritsa - CV 01042026_compressed.pdf",
     transcripts: [
       {
@@ -175,18 +175,6 @@ const portfolioData = {
           "Learned to translate messy data into usable solutions and communicate insights clearly."
         ],
         thesisTitle: "Layout-Aware Metadata Extraction Framework",
-        thesisSummary:
-          "Built a metadata extraction system for academic PDFs and demonstrated that small language models are more flexible than traditional parsing approaches on complex layouts.",
-        documents: [
-          {
-            title: "Transcript of Records",
-            href: "assets/Sanath Vijay Haritsa - Transcript of Records.pdf"
-          },
-          {
-            title: "Leistungsuebersicht",
-            href: "assets/Sanath Vijay Haritsa - Leistungsuebersicht.pdf"
-          }
-        ]
       },
       {
         degree: "Bachelor of Engineering - Mechanical Engineering",
@@ -219,35 +207,28 @@ const portfolioData = {
   skills: [
     {
       title: "Programming",
-      items: ["Python", "R", "SQL"]
+      items: ["Python", "R", "SQL", "Java", "C#"]
     },
     {
-      title: "AI / ML",
-      items: ["Machine Learning", "NLP", "Computer Vision", "Time Series"]
+      title: "Machine Learning",
+      items: ["Scikit-learn", "Pytorch", "Matplotlib", "XGBoost"]
     },
     {
       title: "Generative AI",
-      items: ["LLMs", "Prompt Engineering", "RAG", "Agent Workflows"]
+      items: ["Transformers", "RAG", "AI Agents", "Prompt & Context Engineering"]
     },
     {
-      title: "Frameworks & Tools",
-      items: ["FastAPI", "LangChain", "LangGraph", "HuggingFace", "n8n"]
+      title: "Frameworks",
+      items: ["FastAPI", "LangChain", "LangGraph", "HuggingFace", "n8n", "Pydantic AI"]
     },
     {
-      title: "MLOps & DevOps",
-      items: ["MLflow", "CI/CD", "Docker", "Git"]
+      title: "MLOps, DevOps & Cloud",
+      items: ["MLflow", "LangFuse", "CI/CD", "Docker", "Git", "Google Cloud Platform", "Azure"]
     },
     {
-      title: "Cloud",
-      items: ["Google Cloud Platform", "Microsoft Azure"]
+      title: "Databases",
+      items: ["PostgreSQL", "BigQuery", "Qdrant"]
     }
-  ],
-  workPrinciples: [
-    "Start with problem definition, not tools.",
-    "Define evaluation early and iterate based on results.",
-    "Focus on simple, reliable solutions.",
-    "Write clean, maintainable code and document clearly.",
-    "Build systems that are usable in practice."
   ],
   softSkills: [
     "Strong ownership and accountability for end-to-end delivery.",
@@ -259,7 +240,7 @@ const portfolioData = {
   ],
   contact: {
     summary:
-      "I'm interested in AI engineering roles where evaluation, reliability, and workflow impact matter. If you're building real AI systems and need someone who can turn ideas into usable tools, I'd be glad to connect.",
+      "I am motivated to learn continuously and contribute to meaningful projects. I have a genuine interest in AI and its potential to create real impact. I approach challenges with persistence and resilience, and I am committed to going beyond expectations when needed. I am also actively learning German and working towards better integration into the local environment.",
     items: [
       {
         label: "Email",
@@ -273,8 +254,8 @@ const portfolioData = {
       },
       {
         label: "LinkedIn",
-        value: "linkedin.com/in/sanath-haritsa-974686315",
-        href: "https://www.linkedin.com/in/sanath-haritsa-974686315/"
+        value: "linkedin.com/in/sanath-haritsa",
+        href: "https://www.linkedin.com/in/sanath-haritsa/"
       },
       {
         label: "GitHub",
@@ -541,34 +522,19 @@ const renderEducation = () => {
       body.appendChild(bullets);
     }
 
-    if (entry.thesisTitle && entry.thesisSummary) {
+    if (entry.thesisTitle) {
       const thesisWrap = document.createElement("div");
       thesisWrap.className = "education-thesis";
       const thesisTitle = document.createElement("p");
       thesisTitle.className = "project-section-label";
       thesisTitle.textContent = "Thesis";
       const thesis = document.createElement("p");
-      thesis.innerHTML = `<strong>${entry.thesisTitle}.</strong> ${entry.thesisSummary}`;
+      thesis.innerHTML = `<strong>${entry.thesisTitle}.</strong>`;
       thesisWrap.append(thesisTitle, thesis);
       body.appendChild(thesisWrap);
     }
 
     card.append(header, body);
-
-    if (entry.documents && entry.documents.length > 0) {
-      const docs = document.createElement("div");
-      docs.className = "education-documents";
-      entry.documents.forEach((item) => {
-        const doc = document.createElement("div");
-        doc.className = "transcript-card";
-        const title = document.createElement("strong");
-        title.textContent = item.title;
-        const link = createLink(item.href, "View document");
-        doc.append(title, link);
-        docs.appendChild(doc);
-      });
-      card.appendChild(docs);
-    }
 
     container.appendChild(card);
   });
@@ -651,7 +617,6 @@ setText("hero-summary", portfolioData.heroSummary);
 setText("contact-summary", portfolioData.contact.summary);
 appendParagraphs("summary-content", portfolioData.summary);
 renderList("focus-list", portfolioData.focusAreas);
-renderList("work-principles", portfolioData.workPrinciples);
 renderList("soft-skills", portfolioData.softSkills);
 renderHeroActions();
 renderProjects();
