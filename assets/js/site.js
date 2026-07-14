@@ -18,7 +18,7 @@ const portfolioData = {
     email: "mailto:sanath.vh@gmail.com",
     github: "https://github.com/sanath95",
     linkedin: "https://www.linkedin.com/in/sanath-haritsa/",
-    resume: "assets/Sanath Vijay Haritsa - CV 01042026_compressed.pdf",
+    resume: "assets/CV- Sanath Vijay Haritsa.pdf",
     transcripts: [
       {
         label: "Transcript of Records",
